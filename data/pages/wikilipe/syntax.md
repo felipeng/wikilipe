@@ -105,16 +105,16 @@ Alternatively, it is possible to use: `*` or `_` characters.
 
 It is not mandatory to type the extensions
 
-`![Text](data/imgs/wikilipe "Optional Text")`
-![Text](data/imgs/wikilipe "Optional Text")
+`![Text](data/imgs/wikilipe.png "Optional Text")`
+![Text](data/imgs/wikilipe.png "Optional Text")
 
 Resize:
-`![Alt text](data/imgs/wikilipe =250x80 "Optional title")`
-![Alt text](data/imgs/wikilipe =250x80 "Optional title")
+`![Alt text](data/imgs/wikilipe.png =250x80 "Optional title")`
+![Alt text](data/imgs/wikilipe.png =250x80 "Optional title")
 
 Size:
-`![Alt text](data/imgs/wikilipe =100x* "Optional title")`
-![Alt text](data/imgs/wikilipe =150x* "Optional title")
+`![Alt text](data/imgs/wikilipe.png =100x* "Optional title")`
+![Alt text](data/imgs/wikilipe.png =150x* "Optional title")
 
 ## Table of Contents
 
