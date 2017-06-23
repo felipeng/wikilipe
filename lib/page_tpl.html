@@ -1,0 +1,75 @@
+<html>
+    <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+       <title>WikiLipe: <?php echo $PAGE; ?></title>
+       <link rel="stylesheet" type="text/css" href="lib/style/gray.css">
+       <!-- highlight.js START -->
+       <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+       <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+       <!-- highlight.js END -->
+       <!-- showdown.js START -->
+       <script type="text/javascript" src="//cdn.rawgit.com/showdownjs/showdown/1.7.1/dist/showdown.min.js"></script>
+       <script type="text/javascript" src="//cdn.rawgit.com/JanLoebel/showdown-toc/master/src/showdown-toc.js"></script>
+       <!-- showdown.js END -->
+       <!-- jQuery START -->
+       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       <!-- jQuery END -->
+    </head>
+    <body>
+        <div id="mask"></div>
+        <header>
+          <span id="nav-icon" onclick="goTop(); $('#menu').toggle();">&#9776;</span>
+          <img id="logo" src="lib/imgs/wikilipe.png">
+          <img id="logo_small" src="lib/imgs/wikilipe_small.png">
+          <div id="page_path"><?php if(isset($PAGE_PATH)){ echo $PAGE_PATH;} ?></div>
+          <div id="form_search">
+              <form method="get" onsubmit="validate();">
+                  <input id='search' type="text" name="search" value="" placeholder="Search...">
+              </form>
+          </div>
+        <a href="javascript:" id="tab-edit"    class="tab-button tab" onclick="showTab('edit','');">Edit</a>
+        <a href="javascript:" id="tab-side"    class="tab-button tab" onclick="showTab('side','');">Side</a>
+        <a href="javascript:" id="tab-preview" class="tab-button tab" onclick="showTab('preview','');">Preview</a>
+        <img src="lib/imgs/search.png" id="search_icon">
+        </header>
+        <div id="content">
+          <textarea id="menu-text" style="display: none;"><?php echo $MENU; ?></textarea>
+          <nav id='menu'></nav>
+          <article>
+              <div id="page-edit" class="tab-page">
+                <form id="edit-toolbox" name="edit-toolbox" action="index.php" method="post">
+                    <div id="toolbar">
+                      <img title="Head Line"        onclick="insertTag('headline1');"       src="lib/imgs/text_heading_1.png">
+                      <img title="Bold"             onclick="insertTag('bold');"            src="lib/imgs/text_bold.png">
+                      <img title="Italic"           onclick="insertTag('italic');"          src="lib/imgs/text_italic.png">
+                      <img title="Strike Through"   onclick="insertTag('strikethrough');"   src="lib/imgs/text_strikethrough.png">
+                      <img title="Code"             onclick="insertTag('code');"            src="lib/imgs/text_allcaps.png">
+                      <img title="Block Code"       onclick="insertTag('blockcode');"       src="lib/imgs/page_white_code.png">
+                      <img title="Quote"            onclick="insertTag('quote');"           src="lib/imgs/text_padding_left.png">
+                      <img title="Ordered List"     onclick="insertTag('orderedlist');"     src="lib/imgs/text_list_numbers.png">
+                      <img title="Unordered List"   onclick="insertTag('unorderedlist');"   src="lib/imgs/text_list_bullets.png">
+                      <img title="Horizontal Rule"  onclick="insertTag('horizontalrule');"  src="lib/imgs/text_horizontalrule.png">
+                      <img title="Table"            onclick="insertTag('table');"           src="lib/imgs/table.png">
+                      <img title="Internal Link"    onclick="insertTag('internallink');"    src="lib/imgs/link.png">
+                      <img title="External Link"    onclick="insertTag('externallink');"    src="lib/imgs/world_link.png">
+                      <img title="Image"            onclick="showUpload();"                 src="lib/imgs/photo_add.png">
+                      <input type="hidden" name="page" value="<?php echo $PAGE; ?>">
+                      <input type="image"  name="save" value="Save" src="lib/imgs/disk.png">
+                      <img title="Cancel" onclick="javascript:window.location.href='?p=<?php echo $PAGE; ?>'" src="lib/imgs/cross.png">
+                    </div>
+                    <textarea id="code" name="code"><?php echo $CONTENT; ?></textarea>
+                </form>
+              </div>
+              <div id="page-preview" class="tab-page"></div>
+              <div id="page-images" class="tab-page">
+                <a id="page-images-close" href="javascript:" onclick="showUpload();">X</a>
+                <?php if(isset($IMGS)){ echo $IMGS;} ?>
+              </div>
+              <a id="gotop" href="javascript:" onclick="goTop();" title="Go to top">&#8679;</a>
+          </article>
+        </div>
+        <footer>[WikiLipe] - the simple markdown wiki</footer>
+        <script src="lib/js/main.js" type="text/javascript"></script>
+      </body>
+</html>

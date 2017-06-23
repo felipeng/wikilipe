@@ -1,0 +1,109 @@
+html{font-family: Arial, sans-serif; font-size: 11pt;}
+body{color: #212121; margin: 0px; background-color: #f1f1f1;}
+p{margin: 0.3em;}
+hr{margin:5px;height:0px;overflow:hidden;border:0px;border-top:1px solid #e8e8e8}
+blockquote{border-left: 10px solid #f0f2f4; color: gray;}
+ul,ol{margin-left: 15px; margin-top: 0px; padding-left: 10px;}
+li{padding: 0.8px}
+h1,h2,h3,h4,h5,h6{color:#757575; margin: 0 0 10px 0; border-bottom: 1px solid #e8e8e8; display: table; cursor: pointer;}
+h1{font-size: 22pt;}
+h2{font-size: 20pt;}
+h3{font-size: 18pt;}
+h4{font-size: 16pt;}
+h5{font-size: 14pt;}
+h6{font-size: 12pt;}
+a{color:#039be5;text-decoration:none}
+a img{border:none}
+a.external:after{content: "\2197";}
+img{border:1px solid #ccc;outline:0.25em solid #eee;padding:0.25em;}
+input, textarea{border: 1px solid #ccc;  color: gray; background-color: #fff; font-size: 10pt; line-height: 17px;}
+input{border-radius: 5px;}
+pre{border: 1px solid #e1e1e8;border-radius: 4px; margin: 0px 0px 20px 0px; background-color: #f7f7f7;}
+code{padding: 0px 4px 0px 4px; font-size: 9pt; color: #37474f; background-color: #f7f7f7; border-radius: 4px; font-family: Monaco; }
+textarea{display:block; width:100%; height: 80%;padding: 5px; font-size: 10pt; margin-bottom: 5px; font-family: Monaco, Courier New, monospace;}
+form{display:inline}
+table {border-collapse: collapse; font-size: 11pt; margin: 0px 0px 10px 0px;}
+td, th {border: 1px solid #bbb; text-align: left; padding: 3px 5px 3px 5px;}
+th {background-color: #eee; color: #444;}
+*[id^="anchor_"]{padding-top: 50px; margin-top: -50px;}
+header{display: flex; align-items: center; padding: 5px 5px 2px 5px; position: fixed; background-color: #fff; top: 0px; width: 100%; height: 40px; border-bottom: 1px solid #e8e8e8;}
+article {margin: 47px auto 10px auto; background-color: #fff; padding: 0px 5px 5px 5px; flex: auto; overflow-y: scroll; min-height: 80%;}
+article *{outline: 0}
+footer {text-align: center; padding: 15px; font-size: 9pt; border-top: 1px solid #e8e8e8; bottom:0; color: #888; background-color: #fff}
+
+/* HEADER */
+#logo, #logo_small{border: 0px; outline: none; padding: 0px; margin: 0px;}
+#logo{width: 120px;}
+#logo_small{display: none; width: 50px;}
+#page_path{font-size: 15pt; padding-left: 15px;}
+#form_search {flex-grow: 1; text-align: right; padding-right: 5px;}
+#search{width: 130px; box-sizing: border-box; outline: none;padding: 3px 10px 3px 20px; margin-right: 10px; background-image: url('../imgs/search.png'); background-position: 1px 3px; background-repeat: no-repeat;}
+#search_icon{display: none; border: 0px; outline: 0px; cursor: pointer;}
+#content{display: flex; border: 1px solid #e8e8e8; }
+
+/* NAV */
+nav{padding: 5px 10px 5px 10px; display: none; margin: 44px 10px 0px 0px; background-color: #fff; border: 1px solid #e8e8e8; overflow-y: scroll; max-width: 200px; min-width: 150px;}
+nav a, .toc a{color: #444;}
+nav a:hover, .toc a:hover{color: #039be5;}
+nav ul{list-style-type:none; padding: 2px 2px 10px 5px; margin: 0px 0px 0px 0px;}
+#nav-icon{font-size: 18pt; padding: 2px; margin-top: -7px; cursor: pointer; color: #999}
+#nav-icon:hover{color: #333}
+
+/* TOC */
+.toc {padding: 5px 10px 5px 5px; background: #eee; position: fixed; right: 10px; top: 50px; width: 150px; border-left: 3px solid #757575; overflow-y: scroll; }
+.toc ul{list-style: none; margin: 0px; padding-left: 5px;}
+.toc li{font-size: 11px;}
+
+/*TABS*/
+.tab-button:hover{border-bottom: 3px solid #039be5;}
+.tab-button{background-color: #fff; padding: 3px 5px 3px 5px; color: #666; outline: none;}
+.tab{border-bottom: 3px solid #fff;}
+.selected {border-bottom: 3px solid #039be5;}
+.tab:last-of-type{margin-right: 20px;}
+.edit-sbs{width: 47%; display: block;}
+.preview-sbs{border: 1px solid #cacaca; overflow: scroll; margin: 36px 0 0 5px; height: 78%; flex: 1; width: 50%; padding: 5px; display: block;}
+
+/* GO TOP */
+#gotop {display: none; position: fixed; bottom: 60px; right: 40px; z-index: 2; outline: none; color: #039be5; cursor: pointer; font-size: 15pt; font-weight: bold;}
+#gotop:hover {font-size: 20pt;}
+
+#page-edit{display: none;}
+#page-preview{display: none;}
+
+/* toolbar */
+#toolbar{display: flex; align-items: center; padding: 5px 0px 5px 0px;}
+#toolbar img, #toolbar input{margin: 0px; cursor: pointer; background: linear-gradient(#fff, #eee); padding: 4px; border-left: 0px; border-radius: 0;}
+#toolbar img:first-child{border-radius: 5px 0px 0px 5px; border-left: 1px solid #ccc;}
+#toolbar img:last-child{border-radius: 0px 5px 5px 0px;}
+
+/* upload images */
+#mask{position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .6); z-index: 3; display: none;}
+#page-images{display: none; background-color: #fff; border: 5px solid #ccc; border-radius: 10px; padding: 10px; width: 90%; height: 80%; overflow-y: scroll; margin: 0 auto 0 auto; position: absolute; top: 5%; right: 0; left: 0; z-index: 4;}
+#page-images-close{float: right; border: 2px solid #ccc; border-radius: 70px; padding: 2px 5px 2px 5px; font-size: 8pt;font-weight: bold;}
+#page-images-container{display: flex; flex-wrap: wrap; margin: auto; width: 95%;}
+#page-images-container div{border: 1px solid #ccc; margin: 5px; text-align: center; padding: 5px; font-size: 10pt; width: 160px; }
+#page-images-container div:hover{background-color: #eee;}
+.images{border: 0px; width: 150px; height: 100px;}
+.delete_icon{width: 16px; height: 16px;}
+
+/* Responsive */
+@media only screen and (max-width:500px) {
+    header{padding: 5px; width: 98%;}
+    #logo{display: none;}
+    #logo_small{display: block;}
+    #page_path{font-size: 12pt; padding-left: 5px;letter-spacing: -1}
+    #form_search{padding: 0px 0px 0px 10px; flex-grow: none;}
+    #search{display: none; width: 100%;}
+    #search_icon{display: block;}
+    #tab-side{display: none;}
+    .tab:last-of-type{margin-right: 0px;}
+
+    nav{margin: 55px 5px -40px 5px; width: auto; overflow-y: hidden; min-width: none; max-width: none;}
+    article{padding-top: 0px; margin-top: 50px;}
+    .toc {position: unset; right: 0px; width: auto; border-left: 0px;}
+    .toc ul{display: none;}
+    .toc li{font-size: 12pt; }
+
+    #content{display: block;}
+    #gotop{right: 20px; bottom: 20px;}
+}
