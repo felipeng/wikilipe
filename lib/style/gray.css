@@ -20,7 +20,7 @@ input, textarea{border: 1px solid #ccc;  color: gray; background-color: #fff; fo
 input{border-radius: 5px;}
 pre{border: 1px solid #e1e1e8;border-radius: 4px; margin: 0px 0px 20px 0px; background-color: #f7f7f7;}
 code{padding: 0px 4px 0px 4px; font-size: 9pt; color: #37474f; background-color: #f7f7f7; border-radius: 4px; font-family: Monaco; }
-textarea{display:block; width:100%; height: 80%;padding: 5px; font-size: 10pt; margin-bottom: 5px; font-family: Monaco, Courier New, monospace;}
+textarea{display:block; width:100%; height: 500px; padding: 5px; font-size: 10pt; margin-bottom: 5px; font-family: Monaco, Courier New, monospace; resize: vertical;}
 form{display:inline}
 table {border-collapse: collapse; font-size: 11pt; margin: 0px 0px 10px 0px;}
 td, th {border: 1px solid #bbb; text-align: left; padding: 3px 5px 3px 5px;}
@@ -61,7 +61,7 @@ nav ul{list-style-type:none; padding: 2px 2px 10px 5px; margin: 0px 0px 0px 0px;
 .selected {border-bottom: 3px solid #039be5;}
 .tab:last-of-type{margin-right: 20px;}
 .edit-sbs{width: 47%; display: block;}
-.preview-sbs{border: 1px solid #cacaca; overflow: scroll; margin: 36px 0 0 5px; height: 78%; flex: 1; width: 50%; padding: 5px; display: block;}
+.preview-sbs{border: 1px solid #cacaca; overflow: scroll; margin: 36px 0 0 5px; height: auto; flex: 1; width: 50%; padding: 5px; display: block; resize: vertical;}
 
 /* GO TOP */
 #gotop {display: none; position: fixed; bottom: 60px; right: 40px; z-index: 2; outline: none; color: #039be5; cursor: pointer; font-size: 15pt; font-weight: bold;}
