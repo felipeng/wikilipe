@@ -9,12 +9,11 @@ $DIR_PAGES = "$DIR/pages";
 include('lib/functions.php');
 
 // Debug
+/*
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-// Load menu
-$MENU = menu();
+*/
 
 // Show page
 if(isset($_GET['p'])){
@@ -22,12 +21,14 @@ if(isset($_GET['p'])){
     $PAGE = preg_replace("#/$#","",$PAGE); // accept URL ended with /
     $PAGE_PATH = page_path($PAGE);
     $FILENAME = "$DIR_PAGES/$PAGE.md";
-    // $ESP = 1;
 
     //Check if the data directory is writeable
     if (!is_writable($DIR)) {
       $CONTENT = "# Error\nThe directory ($DIR/) is not writable" . permissions();
     } else {
+      // Load menu
+      $MENU = menu();
+
       if (file_exists($FILENAME)){
          if (!is_writable($FILENAME)){
             $CONTENT = "# Error\nThe file ($FILENAME) is not writable" . permissions();

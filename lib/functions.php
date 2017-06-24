@@ -102,8 +102,8 @@ function page_path($page){
 //
 function permissions(){
   global $DIR;
-  $WEB_U = "posix_getpwuid(posix_geteuid())['name']";
-  $WEB_G = "posix_getgrgid(posix_geteuid())['name']";
+  $WEB_U = posix_getpwuid(posix_geteuid())['name'];
+  $WEB_G = posix_getgrgid(posix_geteuid())['name'];
   return ", please correct the permissions running the following commands:
 <pre><code>chown -R $WEB_U:$WEB_G $DIR\nchmod -R 775 $DIR\nfind $DIR -type f -exec chmod 664 \"{}\" \;</code></pre>";
 }
