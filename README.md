@@ -17,10 +17,6 @@ For security reasons it is highly recommendable to use `.htaccess` with user and
 
 ## Customization
 
-### WikiLipe's Theme
-
-WikiLipe contains two themes: blue.css and gray.css (default), you can choose between them in `lib/page_tpl.html` file.
-
 ### Syntax Highlight - Languages
 
 The pre built version of highlight.js contains 23 commonly used languages; however, it is possible to create a custom bundle including only the languages you need using this [tool](https://highlightjs.org/download/)
