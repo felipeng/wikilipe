@@ -63,6 +63,9 @@ else if(isset($_GET['search'])){
     $PAGE_PATH = $PAGE;
     $list = "";
     $files = array();
+    // Load menu
+    $MENU = menu();
+
     // if query is empty
     if($QUERY != ""){
       $ob = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($DIR_PAGES), RecursiveIteratorIterator::SELF_FIRST);
@@ -86,6 +89,9 @@ else if(isset($_GET['search'])){
 // Upload images
 else if(isset($_GET['upload'])){
   $PAGE = "upload";
+
+  // Load menu
+  $MENU = menu();
 
   if(isset($_POST['upload'])){
     $uploadStatus = upload();
