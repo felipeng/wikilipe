@@ -27,7 +27,7 @@
           <div id="page_path"><?php if(isset($PAGE_PATH)){ echo $PAGE_PATH;} ?></div>
           <div id="form_search">
               <form method="get" onsubmit="validate();">
-                  <input id='search' type="text" name="search" value="" placeholder="Search...">
+                  <input id="search" type="text" name="search" value="" autocapitalize="none" autocorrect="off" placeholder="Search...">
               </form>
           </div>
         <a href="javascript:" id="tab-edit"    class="tab-button tab" onclick="showTab('edit','');">Edit</a>
