@@ -58,32 +58,35 @@ else if(isset($_POST['save'])){
 }
 // Search content
 else if(isset($_GET['search'])){
-    $QUERY = $_GET['search'];
-    $PAGE = "search: $QUERY";
-    $PAGE_PATH = $PAGE;
-    $list = "";
-    $files = array();
     // Load menu
     $MENU = menu();
 
-    // if query is empty
+    $QUERY = $_GET['search'];
+    $PAGE = "search: $QUERY";
+    $PAGE_PATH = $PAGE;
+    $list_contents = "";
+    $list_files = "";
+
+    // if query is not empty
     if($QUERY != ""){
-      $ob = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($DIR_PAGES), RecursiveIteratorIterator::SELF_FIRST);
-      foreach($ob as $name => $object){
-          if (is_file($name)) {
-              $tmp = file_get_contents($name);
-              if (strpos($tmp,$QUERY) !== false) {
-                  $files[] = $name;
+      $allfiles = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($DIR_PAGES), RecursiveIteratorIterator::SELF_FIRST);
+      foreach($allfiles as $file){
+          if (is_file($file)) {
+              $filename = substr(str_replace($DIR_PAGES,"",$file),0,-3);
+              if(strpos(basename($file),$QUERY) !== false){
+                  $list_files .= "* [$filename](?p=$filename)\n";
+              } else {
+                $file_content = file_get_contents($file);
+                if (strpos($file_content,$QUERY) !== false) {
+                  $list_contents .= "* [$filename](?p=$filename)\n";
+                }
               }
           }
       }
-      sort($files);
-      for($i=0; $i < sizeof($files); $i++){
-          $path_file = substr(substr($files[$i], strlen($DIR_PAGES)+1), 0, -3);
-          $list .= "<li><a href='?p=$path_file'>$path_file</a></li>";
-      }
     }
-    $CONTENT = "Matches: $QUERY (".count($files).")<ul>$list</ul>";
+
+    $CONTENT = "# File matches: ".substr_count($list_files,"\n")."\n$list_files
+# Content matches: ".substr_count($list_contents,"\n")."\n$list_contents\n";
 
 }
 // Upload images
