@@ -21,7 +21,7 @@ function upload(){
   }
   // Check if file already exists
   if (file_exists($fullpathfile)) {
-      $uploadMsg = "Error: file ($file) already exists and was not uploaded.";
+      $uploadMsg = "Error: file ($file) already exists.";
       $uploadOk = 0;
   }
   // Check file size
@@ -31,7 +31,7 @@ function upload(){
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-      $uploadMsg = "Error: only .jpg, .jpeg, .png and .gif files are allowed and was not uploaded.";
+      $uploadMsg = "Error: only .jpg, .jpeg, .png and .gif files are allowed.";
       $uploadOk = 0;
   }
 
