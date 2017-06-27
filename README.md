@@ -13,7 +13,21 @@ Check a live demo [here](http://felipeng.net/wikilipe-demo)
 1. Download or clone this repository into a web server with php module running.
 1. Get access the `index.php` and the WikiLipe will warn whether adjusting the directory permission is necessary.
 
-For security reasons it is highly recommendable to use `.htaccess` with user and password for getting the wiki access.
+For security reasons it is highly recommendable to use `.htaccess` with authentication for getting the WikiLipe access.
+
+Example:
+```
+AuthType Basic
+AuthName "WikiLipe"
+AuthUserFile /etc/apache2/htpasswd/wikilipe.passwd
+Require valid-user
+# Allow to access the wikilipe_app.png without authentication
+SetEnvIf Request_URI "/wikilipe_app.png$" LogoURI
+Order Deny,Allow
+Deny from all
+Allow from env=LogoURI
+Satisfy any
+```
 
 ## Customization
 
