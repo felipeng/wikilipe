@@ -72,7 +72,7 @@ else if(isset($_GET['search'])){
       $allfiles = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($DIR_PAGES), RecursiveIteratorIterator::SELF_FIRST);
       foreach($allfiles as $file){
           if (is_file($file)) {
-              $filename = substr(str_replace($DIR_PAGES,"",$file),0,-3);
+              $filename = substr(str_replace($DIR_PAGES,"",$file),1,-3);
               if(strpos(basename($file),$QUERY) !== false){
                   $list_files .= "* [$filename](?p=$filename)\n";
               } else {
