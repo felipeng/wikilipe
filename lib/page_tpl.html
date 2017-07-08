@@ -21,7 +21,7 @@
     <body>
         <div id="mask"></div>
         <header>
-          <span id="nav-icon" onclick="goTop(); $('#menu').toggle();">&#9776;</span>
+          <span id="nav-icon" onclick="goTop(); $('#menu').slideToggle('fast');">&#9776;</span>
           <img id="logo" src="lib/imgs/wikilipe.png">
           <img id="logo_small" src="lib/imgs/wikilipe_small.png">
           <div id="page_path"><?php if(isset($PAGE_PATH)){ echo $PAGE_PATH;} ?></div>
