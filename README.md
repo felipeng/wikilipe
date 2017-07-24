@@ -1,8 +1,8 @@
 # WikiLipe
 
-![WikiLipe](lib/imgs/wikilipe.png "WikiLipe")
-
 [![GitHub release](https://img.shields.io/github/release/felipeng/wikilipe.svg)](https://github.com/felipeng/wikilipe/releases/latest)
+
+![WikiLipe](lib/imgs/wikilipe.png "WikiLipe")
 
 WikiLipe is a simple personal wiki that uses [Markdown](https://daringfireball.net/projects/markdown/syntax) syntax.
 
