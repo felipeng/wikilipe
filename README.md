@@ -1,5 +1,6 @@
 # WikiLipe
 
+[![Build Status](https://travis-ci.org/felipeng/wikilipe.svg?branch=master)](https://travis-ci.org/felipeng/wikilipe)
 [![GitHub release](https://img.shields.io/github/release/felipeng/wikilipe.svg)](https://github.com/felipeng/wikilipe/releases/latest)
 
 ![WikiLipe](lib/imgs/wikilipe.png "WikiLipe")
