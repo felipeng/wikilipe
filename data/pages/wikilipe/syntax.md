@@ -98,7 +98,7 @@ Alternatively, it is possible to use: `*` or `_` characters.
 
 ### Internal Link
 
-`[internal page](?p=dir/subdir/page)` = [internal page](?p=dir/subdir/page)
+`[internal page](dir/subdir/page)` = [internal page](dir/subdir/page)
 
 
 ### Images
