@@ -1,11 +1,11 @@
-* [Home](?p=home)
-    * [SubPage](?p=home/subpage)
+* [Home](home)
+    * [SubPage](home/subpage)
 
 ---
 
 * **WikiLipe's Files**
-  * [Menu](?p=wikilipe/menu)
-  * [Images](?upload)
-  * [README](?p=wikilipe/readme)
-  * [Syntax WikiLipe](?p=wikilipe/syntax)
+  * [Menu](wikilipe/menu)
+  * [Images](upload)
+  * [README](wikilipe/readme)
+  * [Syntax WikiLipe](wikilipe/syntax)
   * [Syntax Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
