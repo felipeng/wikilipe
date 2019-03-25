@@ -38,8 +38,8 @@ Alternatively, it is possible to use: `*`, `-` or `+` characters.
         * Apple-pear
     * Grape
 * Vegetables
-     * Lettuce
-     * Chicory
+    * Lettuce
+    * Chicory
 ```
 
 * Fruit
