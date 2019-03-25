@@ -5,7 +5,7 @@ hr{margin:5px;height:0px;overflow:hidden;border:0px;border-top:1px solid #e8e8e8
 blockquote{border-left: 10px solid #f0f2f4; color: gray;}
 ul,ol{margin-left: 15px; margin-top: 0px; padding-left: 10px;}
 li{padding: 0.8px}
-h1,h2,h3,h4,h5,h6{color:#757575; margin: 0 0 10px 0; border-bottom: 1px solid #e8e8e8; display: table; cursor: pointer;}
+h1,h2,h3,h4,h5,h6{color:#757575; margin: 0 0 10px 0; border-bottom: 1px solid #e8e8e8; display: table;}
 h1{font-size: 22pt;}
 h2{font-size: 20pt;}
 h3{font-size: 18pt;}
