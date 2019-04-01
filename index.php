@@ -9,11 +9,9 @@ $DIR_PAGES = "$DIR/pages";
 include('lib/functions.php');
 
 // Debug
-/*
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-*/
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 // Show page
 if(isset($_GET['p'])){
@@ -53,8 +51,15 @@ else if(isset($_POST['save'])){
     if (!is_dir($PAGE_SUBDIR)) {
       mkdir($PAGE_SUBDIR,0775,true);
     }
-    file_put_contents("$DIR_PAGES/$PAGE.md",$CONTENT);
-    header ("Location: ?p=$PAGE");
+
+    // If $CONTENT is empty deletes the file and redirect to home
+    if ($CONTENT == ""){
+      unlink("$DIR_PAGES/$PAGE.md");
+      header ("Location: ?p=home");
+    } else {
+      file_put_contents("$DIR_PAGES/$PAGE.md",$CONTENT);
+      header ("Location: ?p=$PAGE");
+    }
 }
 // Search content
 else if(isset($_GET['search'])){
