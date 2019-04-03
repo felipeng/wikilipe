@@ -82,7 +82,6 @@ function menu(){
   // load menu or if not exist create it
   if (!file_exists($menu_file)){
       copy("lib/menu_tpl.md", $menu_file);
-      copy("README.md", $DIR_PAGES . "/wikilipe/readme.md");
   }
   return file_get_contents($menu_file);
 }
