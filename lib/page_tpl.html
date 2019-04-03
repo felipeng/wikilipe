@@ -5,10 +5,10 @@
        <meta name="apple-mobile-web-app-title" content="[WikiLipe]">
        <link rel="apple-touch-icon" href="lib/imgs/wikilipe_app.png">
        <title>WikiLipe: <?php echo $PAGE; ?></title>
-       <link rel="stylesheet" type="text/css" href="lib/style/gray.css">
+       <link rel="stylesheet" type="text/css" href="<?php echo $CONFIG['wikilipe']['style']; ?>">
        <!-- highlight.js START -->
-       <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
-       <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+       <link rel="stylesheet" type="text/css" href="<?php echo $CONFIG['highlightjs']['languages']; ?>">
+       <script type="text/javascript" src="<?php echo $CONFIG['highlightjs']['style']; ?>"></script>
        <!-- highlight.js END -->
        <!-- showdown.js START -->
        <script type="text/javascript" src="//cdn.rawgit.com/showdownjs/showdown/1.9.0/dist/showdown.min.js"></script>

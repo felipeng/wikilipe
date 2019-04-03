@@ -1,5 +1,8 @@
 <?php
 
+// read and parse configuration file
+$CONFIG = parse_ini_file("$DIR/config.ini", true);
+
 // do the image upload
 function upload(){
   global $DIR_IMGS;
