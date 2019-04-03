@@ -53,8 +53,15 @@ else if(isset($_POST['save'])){
     if (!is_dir($PAGE_SUBDIR)) {
       mkdir($PAGE_SUBDIR,0775,true);
     }
-    file_put_contents("$DIR_PAGES/$PAGE.md",$CONTENT);
-    header ("Location: ?p=$PAGE");
+
+    // If $CONTENT is empty deletes the file and redirect to home
+    if ($CONTENT == ""){
+      unlink("$DIR_PAGES/$PAGE.md");
+      header ("Location: ?p=home");
+    } else {
+      file_put_contents("$DIR_PAGES/$PAGE.md",$CONTENT);
+      header ("Location: ?p=$PAGE");
+    }
 }
 // Search content
 else if(isset($_GET['search'])){
