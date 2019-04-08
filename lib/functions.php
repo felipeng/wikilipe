@@ -1,7 +1,14 @@
 <?php
 
-// read and parse configuration file
+// Configuration - read and parse configuration file
 $CONFIG = parse_ini_file("$DIR/config.ini", true);
+
+// Configuration - wikilipe - menu (show/hide)
+if ($CONFIG['wikilipe']['menu'] == "show") {
+  $CONFIG['wikilipe']['menu'] = "block";
+} else {
+  $CONFIG['wikilipe']['menu'] = "none";
+}
 
 // do the image upload
 function upload(){
@@ -101,7 +108,7 @@ function page_path($page){
   return $PAGE_PATH;
 }
 
-//
+// webserver check right permissions
 function permissions(){
   global $DIR;
   if (extension_loaded('posix')) {

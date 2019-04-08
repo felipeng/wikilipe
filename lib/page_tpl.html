@@ -37,7 +37,7 @@
         </header>
         <div id="content">
           <textarea id="menu-text" style="display: none;"><?php echo $MENU; ?></textarea>
-          <nav id='menu'></nav>
+          <nav id="menu" style="display: <?php echo $CONFIG['wikilipe']['menu']; ?>;"></nav>
           <article>
               <div id="page-edit" class="tab-page">
                 <form id="edit-toolbox" name="edit-toolbox" action="index.php" method="post">
