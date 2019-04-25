@@ -24,7 +24,7 @@
           <span id="nav-icon" onclick="goTop(); $('#menu').slideToggle('fast');">&#9776;</span>
           <a href="?p=home"><img id="logo" src="lib/imgs/wikilipe.png"></a>
           <a href="?p=home"><img id="logo_small" src="lib/imgs/wikilipe_small.png"></a>
-          <div id="page_path"><?php if(isset($PAGE_PATH)){ echo $PAGE_PATH;} ?></div>
+          <div id="page_path"><?php if(isset($PAGE_PATH)){ echo $PAGE_PATH; } ?></div>
           <div id="form_search">
               <form method="get" onsubmit="validate();">
                   <input id="search" type="text" name="search" value="" autocapitalize="none" autocorrect="off" placeholder="Search...">
@@ -37,7 +37,7 @@
         </header>
         <div id="content">
           <textarea id="menu-text" style="display: none;"><?php echo $MENU; ?></textarea>
-          <nav id="menu" style="display: <?php echo $CONFIG['wikilipe']['menu']; ?>;"></nav>
+          <nav id="menu" class="<?php echo $menu_hidden; ?>"></nav>
           <article>
               <div id="page-edit" class="tab-page">
                 <form id="edit-toolbox" name="edit-toolbox" action="index.php" method="post">

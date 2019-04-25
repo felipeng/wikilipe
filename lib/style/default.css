@@ -46,6 +46,7 @@ footer {text-align: center; padding: 15px; font-size: 9pt; border-top: 1px solid
 
 /* NAV */
 nav{padding: 5px 10px 5px 10px; margin: 44px 10px 0px 0px; background-color: #fff; border: 1px solid #e8e8e8; overflow-y: scroll; max-width: 200px; min-width: 150px;}
+.menu_hidden{display: none;}
 nav a, .toc a{color: #444;}
 nav a:hover, .toc a:hover{color: #039be5;}
 nav ul{list-style-type:none; padding: 2px 2px 10px 5px; margin: 0px 0px 0px 0px;}
@@ -101,8 +102,8 @@ nav ul{list-style-type:none; padding: 2px 2px 10px 5px; margin: 0px 0px 0px 0px;
     #tab-side{display: none;}
     .tab:last-of-type{margin-right: 0px;}
     .clipboard{display: none;}
-
-    nav{margin: 55px 5px -40px 5px; width: auto; overflow-y: hidden; min-width: none; max-width: none;}
+    .menu{display: none;}
+    nav{margin: 55px 5px -40px 5px; width: auto; overflow-y: hidden; min-width: none; max-width: none; display: none;}
     article{padding-top: 0px; margin-top: 50px;}
     .toc {position: unset; right: 0px; width: auto; border-left: 0px; max-height: none;}
     .toc ul{display: none;}
