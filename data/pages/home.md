@@ -1,7 +1,6 @@
 [toc]
 
 # Home
-
 This is the initial page, and it has a [sub-page](?p=home/subpage).
 
 ## Next Step

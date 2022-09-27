@@ -9,7 +9,7 @@ $DIR_PAGES = "$DIR/pages";
 include('lib/functions.php');
 
 // Debug
-/*
+/* 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -42,7 +42,7 @@ if(isset($_GET['p'])){
     }
 }
 // Save page
-else if(isset($_POST['save'])){
+else if(isset($_POST['save_x'])){
     $PAGE = $_POST['page'];
     $CONTENT = $_POST['code'];
     $CONTENT = preg_replace('/\r\n/', "\n",$CONTENT); // remove EOF ^M

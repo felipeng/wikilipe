@@ -6,7 +6,10 @@ $CONFIG = parse_ini_file("$DIR/config.ini", true);
 // Configuration - wikilipe - menu (show/hide)
 if ($CONFIG['wikilipe']['menu_hidden'] == "yes") {
   $menu_hidden = "menu_hidden";
+} else {
+  $menu_hidden = "";
 }
+
 
 // do the image upload
 function upload(){

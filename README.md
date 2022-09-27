@@ -6,10 +6,6 @@
 
 WikiLipe is a simple personal wiki that uses [Markdown](https://daringfireball.net/projects/markdown/syntax) syntax.
 
-## Demo
-
-Check a live demo [here](http://felipeng.net/wikilipe-demo)
-
 ## Instalation
 
 1. Download or clone this repository into a web server with php module running.
