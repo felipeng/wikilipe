@@ -50,6 +50,11 @@ It is possible to add more showdown.js' [extensions](https://github.com/showdown
 * FamFamFam icons - [FamFamFam](http://www.famfamfam.com/lab/icons/silk/)
 * The logo was created using [FlamingText](http://www6.flamingtext.com)
 
+## Development
+
+1. `docker run -p 8080:8080 -v $PWD:/var/www/html trafex/php-nginx`
+1. http://localhost:8080
+
 ## Contributing
 
 If you wish to contribute you can submit an issue or feel free to issue a pull request.
