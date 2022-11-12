@@ -80,11 +80,11 @@ else if(isset($_GET['search'])){
       foreach($allfiles as $file){
           if (is_file($file)) {
               $filename = substr(str_replace($DIR_PAGES,"",$file),1,-3);
-              if(strpos(basename($file),$QUERY) !== false){
+              if(stripos(basename($file),$QUERY) !== false){
                   $list_files .= "* [$filename]($filename)\n";
               } else {
                 $file_content = file_get_contents($file);
-                if (strpos($file_content,$QUERY) !== false) {
+                if (stripos($file_content,$QUERY) !== false) {
                   $list_contents .= "* [$filename]($filename)\n";
                 }
               }
