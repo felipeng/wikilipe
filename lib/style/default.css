@@ -6,12 +6,12 @@ blockquote{border-left: 10px solid #f0f2f4; color: gray;}
 ul,ol{margin-left: 15px; margin-top: 0px; padding-left: 10px;}
 li{padding: 0.8px;}
 h1,h2,h3,h4,h5,h6{color:#757575; margin: 0 0 10px 0; border-bottom: 1px solid #e8e8e8; display: table;}
-h1{font-size: 22pt;}
-h2{font-size: 18pt;}
+h1{font-size: 18pt;}
+h2{font-size: 16pt;}
 h3{font-size: 14pt;}
-h4{font-size: 10pt;}
-h5{font-size: 6pt;}
-h6{font-size: 2pt;}
+h4{font-size: 12pt;}
+h5{font-size: 10pt;}
+h6{font-size: 8pt;}
 a{color:#039be5;text-decoration:none;}
 a img{border:none;}
 a.external:after{content: "\2197";}
@@ -65,7 +65,7 @@ nav ul{list-style-type:none; padding: 2px 2px 10px 5px; margin: 0px 0px 0px 0px;
 .selected {border-bottom: 3px solid #039be5;}
 .tab:last-of-type{margin-right: 20px;}
 .edit-sbs{width: 47%; display: block;}
-.preview-sbs{border: 1px solid #cacaca; overflow: scroll; margin: 36px 0 0 5px; height: 84%; flex: 1; width: 50%; padding: 5px; display: block; resize: vertical;}
+.preview-sbs{border: 1px solid #cacaca; overflow: scroll; margin: 36px 0 0 5px; height: 100%; flex: 1; width: 50%; padding: 5px; display: block; resize: vertical;}
 
 /* GO TOP */
 #gotop {display: none; position: fixed; bottom: 60px; right: 40px; z-index: 2; outline: none; color: #039be5; cursor: pointer; font-size: 15pt; font-weight: bold;}
