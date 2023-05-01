@@ -12,17 +12,18 @@ if ($CONFIG['wikilipe']['menu_hidden'] == "yes") {
 
 
 // do the image upload
-function upload(){
+function upload()
+{
   global $DIR_IMGS;
   $file = basename($_FILES["fileToUpload"]["name"]);
   $fullpathfile =  $DIR_IMGS . "/" . $file;
   $uploadOk = 1;
-  $imageFileType = pathinfo($fullpathfile,PATHINFO_EXTENSION);
+  $imageFileType = pathinfo($fullpathfile, PATHINFO_EXTENSION);
 
   // Check if image file is a actual image or fake image
-  if(isset($_POST["submit"])) {
+  if (isset($_POST["submit"])) {
       $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-      if($check !== false) {
+      if ($check !== false) {
           $uploadMsg = "File is an image - " . $check["mime"] . ".";
           $uploadOk = 1;
       } else {
@@ -41,7 +42,7 @@ function upload(){
       $uploadOk = 0;
   }
   // Allow certain file formats
-  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+  if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
       $uploadMsg = "Error: only .jpg, .jpeg, .png and .gif files are allowed.";
       $uploadOk = 0;
   }
@@ -59,25 +60,28 @@ function upload(){
 }
 
 // size of files
-function file_size($img) {
+function fileSizeHumanized($img)
+{
   $size = filesize($img);
-  $units = array( 'B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+  $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
   $power = $size > 0 ? floor(log($size, 1024)) : 0;
   return number_format($size / pow(1024, $power), 2, '.', ',') . ' ' . $units[$power];
 }
 
 // list of images
-function list_imgs($page){
+function listImages($page)
+{
   global $DIR_IMGS;
-  $img_files = array_diff(scandir( $DIR_IMGS), array('.', '..'));
+  $imageFiles = array_diff(scandir($DIR_IMGS), array('.', '..'));
   $imgs = "\n<h2>Images</h2>\n<div id='page-images-container'>\n";
 
-  if ($page == "upload"){
-    foreach ($img_files as $img) {
-      $imgs .= "<div><img class='images' src='$DIR_IMGS/$img'>$img (" . file_size("$DIR_IMGS/$img") . ") <a href='index.php?upload&delete=$img'><img class='delete_icon' src='lib/imgs/delete.png'></a></div>\n";
+  if ($page == "upload") {
+    foreach ($imageFiles as $img) {
+      $imgs .= "<div><img class='images' src='$DIR_IMGS/$img'>$img (" . fileSizeHumanized("$DIR_IMGS/$img") . ")
+      <a href='index.php?upload&delete=$img'><img class='delete_icon' src='lib/imgs/delete.png'></a></div>\n";
     }
-  } else if($page == 'preview'){
-    foreach ($img_files as $img) {
+  } elseif ($page == 'preview') {
+    foreach ($imageFiles as $img) {
       $imgs .= "<div onclick='insertImg(\"$img\");'><img class='images' style='cursor: pointer;' data-src='$DIR_IMGS/$img' alt='$img'><br>$img</div>";
     }
   }
@@ -86,31 +90,34 @@ function list_imgs($page){
 }
 
 // Menu
-function menu(){
+function menu()
+{
   global $DIR_PAGES;
-  $menu_file = $DIR_PAGES . "/wikilipe/menu.md";
+  $menuFile = $DIR_PAGES . "/wikilipe/menu.md";
 
   // load menu or if not exist create it
-  if (!file_exists($menu_file)){
-      copy("lib/menu_tpl.md", $menu_file);
+  if (!file_exists($menuFile)) {
+      copy("lib/menu_tpl.md", $menuFile);
   }
-  return file_get_contents($menu_file);
+  return file_get_contents($menuFile);
 }
 
 // Page Path
-function page_path($page){
-  $path_exploded = explode('/', $page);
-  $title_path = "";
-  $PAGE_PATH = "";
-  for($i=0; $i < sizeof($path_exploded); $i++){
-      $title_path .= "$path_exploded[$i]/";
-      $PAGE_PATH .= " / <a href='?p=$title_path'>$path_exploded[$i]</a>";
+function pagePath($page)
+{
+  $pathExploded = explode('/', $page);
+  $titlePath = "";
+  $pagePath = "";
+  for ($i=0; $i < sizeof($pathExploded); $i++) {
+      $titlePath .= "$pathExploded[$i]/";
+      $pagePath .= " / <a href='?p=$titlePath'>$pathExploded[$i]</a>";
   }
-  return $PAGE_PATH;
+  return $pagePath;
 }
 
 // webserver check right permissions
-function permissions(){
+function permissions()
+{
   global $DIR;
   if (extension_loaded('posix')) {
     $WEB_U = posix_getpwuid(posix_geteuid())['name'];
@@ -124,4 +131,3 @@ function permissions(){
   return $RESULT;
 }
 
-?>

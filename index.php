@@ -9,17 +9,17 @@ $DIR_PAGES = "$DIR/pages";
 include('lib/functions.php');
 
 // Debug
-/* 
+/*
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 */
 
 // Show page
-if(isset($_GET['p'])){
+if (isset($_GET['p'])) {
     $PAGE = $_GET['p'];
-    $PAGE = preg_replace("#/$#","",$PAGE); // accept URL ended with /
-    $PAGE_PATH = page_path($PAGE);
+    $PAGE = str_replace("#/$#", "", $PAGE); // accept URL ended with /
+    $PAGE_PATH = pagePath($PAGE);
     $FILENAME = "$DIR_PAGES/$PAGE.md";
 
     //Check if the data directory is writeable
@@ -29,42 +29,38 @@ if(isset($_GET['p'])){
       // Load menu
       $MENU = menu();
 
-      if (file_exists($FILENAME)){
-         if (!is_writable($FILENAME)){
+      if (file_exists($FILENAME)) {
+         if (!is_writable($FILENAME)) {
             $CONTENT = "# Error\nThe file ($FILENAME) is not writable" . permissions();
           } else {
-            $IMGS = list_imgs('preview');
+            $IMGS = listImages('preview');
             $CONTENT = file_get_contents($FILENAME);
           }
       } else {
         $CONTENT = "# Error\nPage not found! Do you want to create? <a href='javascript:' onclick='newPage(\"$PAGE\");'>YES!</a>";
       }
     }
-}
-// Save page
-else if(isset($_POST['save_x'])){
+} elseif (isset($_POST['save_x'])) { // Save page
     $PAGE = $_POST['page'];
     $CONTENT = $_POST['code'];
-    $CONTENT = preg_replace('/\r\n/', "\n",$CONTENT); // remove EOF ^M
-    $CONTENT = preg_replace('/\r/', "\n",$CONTENT);   // remove EOF ^M
+    $CONTENT = str_replace('/\r\n/', "\n", $CONTENT); // remove EOF ^M
+    $CONTENT = str_replace('/\r/', "\n", $CONTENT);   // remove EOF ^M
 
     // Create page subdir if not exists
     $PAGE_SUBDIR = $DIR_PAGES."/".substr($PAGE, 0, strrpos($PAGE, '/'));
     if (!is_dir($PAGE_SUBDIR)) {
-      mkdir($PAGE_SUBDIR,0775,true);
+      mkdir($PAGE_SUBDIR, 0775, true);
     }
 
     // If $CONTENT is empty deletes the file and redirect to home
-    if ($CONTENT == ""){
+    if ($CONTENT == "") {
       unlink("$DIR_PAGES/$PAGE.md");
-      header ("Location: ?p=home");
+      header("Location: ?p=home");
     } else {
-      file_put_contents("$DIR_PAGES/$PAGE.md",$CONTENT);
-      header ("Location: ?p=$PAGE");
+      file_put_contents("$DIR_PAGES/$PAGE.md", $CONTENT);
+      header("Location: ?p=$PAGE");
     }
-}
-// Search content
-else if(isset($_GET['search'])){
+} elseif (isset($_GET['search'])) { // Search content
     // Load menu
     $MENU = menu();
 
@@ -75,16 +71,19 @@ else if(isset($_GET['search'])){
     $list_files = "";
 
     // if query is not empty
-    if($QUERY != ""){
-      $allfiles = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($DIR_PAGES), RecursiveIteratorIterator::SELF_FIRST);
-      foreach($allfiles as $file){
+    if ($QUERY != "") {
+      $allfiles = new RecursiveIteratorIterator(
+          new RecursiveDirectoryIterator($DIR_PAGES),
+          RecursiveIteratorIterator::SELF_FIRST
+      );
+      foreach ($allfiles as $file) {
           if (is_file($file)) {
-              $filename = substr(str_replace($DIR_PAGES,"",$file),1,-3);
-              if(stripos(basename($file),$QUERY) !== false){
+              $filename = substr(str_replace($DIR_PAGES, "", $file), 1, -3);
+              if (stripos(basename($file), $QUERY) !== false) {
                   $list_files .= "* [$filename]($filename)\n";
               } else {
                 $file_content = file_get_contents($file);
-                if (stripos($file_content,$QUERY) !== false) {
+                if (stripos($file_content, $QUERY) !== false) {
                   $list_contents .= "* [$filename]($filename)\n";
                 }
               }
@@ -92,24 +91,22 @@ else if(isset($_GET['search'])){
       }
     }
 
-    $CONTENT = "# File matches: ".substr_count($list_files,"\n")."\n$list_files
-# Content matches: ".substr_count($list_contents,"\n")."\n$list_contents\n";
+    $CONTENT = "# File matches: ".substr_count($list_files, "\n")."\n$list_files
+# Content matches: ".substr_count($list_contents, "\n")."\n$list_contents\n";
 
-}
-// Upload images
-else if(isset($_GET['upload'])){
+} elseif (isset($_GET['upload'])) { // Upload images
   $PAGE = "upload";
 
   // Load menu
   $MENU = menu();
 
-  if(isset($_POST['upload'])){
+  if (isset($_POST['upload'])) {
     $uploadStatus = upload();
   } else {
     $uploadStatus = '';
   }
 
-  if(isset($_GET['delete'])){
+  if (isset($_GET['delete'])) {
     global $DIR_IMGS;
     $img = $_GET['delete'];
     $img_path = $DIR_IMGS . "/" . $img;
@@ -118,7 +115,7 @@ else if(isset($_GET['upload'])){
     if (strpos($img, '/') !== false) {
       $uploadStatus = "<div style='color: red'>Error: illegal filename.</div>";
     } else {
-      if(!file_exists($img_path)){
+      if (!file_exists($img_path)) {
         $uploadStatus = "<div style='color: red'>Error: file ($img) does not exist.</div>";
       } else {
         // delete image file
@@ -135,14 +132,11 @@ else if(isset($_GET['upload'])){
       <input type='submit' value='Upload Image' name='upload'>
     </form>$uploadStatus";
 
-  $CONTENT .= list_imgs('upload');
+  $CONTENT .= listImages('upload');
 
-} // Anything else
-else {
-  header ("Location: index.php?p=home");
+} else { // Anything else
+  header("Location: index.php?p=home");
 }
 
 // Call the html template
-include('lib/page_tpl.html');
-
-?>
+include_once('lib/page_tpl.html');

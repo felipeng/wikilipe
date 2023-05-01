@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
        <meta charset="UTF-8">
        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,19 +12,19 @@
        <script type="application/javascript" src="<?php echo $CONFIG['highlightjs']['languages']; ?>"></script>
        <!-- highlight.js END -->
        <!-- showdown.js START -->
-       <script type="application/javascript" src="//cdn.rawgit.com/showdownjs/showdown/1.9.0/dist/showdown.min.js"></script>
-       <script type="application/javascript" src="//cdn.rawgit.com/JanLoebel/showdown-toc/master/src/showdown-toc.js"></script>
+       <script src="https://cdn.rawgit.com/showdownjs/showdown/1.9.0/dist/showdown.min.js" integrity="sha384-KpuxVjTC2hfOkg5KV3jSdx1eA6xy0PGS0wNfDrwf4sZBnZdzlIsnkH+LzLkavmH7" crossorigin="anonymous"></script>
+       <script src="https://cdn.rawgit.com/JanLoebel/showdown-toc/master/src/showdown-toc.js" integrity="sha384-jm1lcYMpat4Wf5Kgy+uiHGP5em2b2BG8tGElbXz3WuSFo54J4nte2tj7EaI4+F3L" crossorigin="anonymous"></script>
        <!-- showdown.js END -->
        <!-- jQuery START -->
-       <script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
        <!-- jQuery END -->
     </head>
     <body>
         <div id="mask"></div>
         <header>
           <span id="nav-icon" onclick="goTop(); $('#menu').slideToggle('fast');">&#9776;</span>
-          <a href="?p=home"><img id="logo" src="lib/imgs/wikilipe.png"></a>
-          <a href="?p=home"><img id="logo_small" src="lib/imgs/wikilipe_small.png"></a>
+          <a href="?p=home"><img alt="logo" id="logo" src="lib/imgs/wikilipe.png"></a>
+          <a href="?p=home"><img alt="logo_small" id="logo_small" src="lib/imgs/wikilipe_small.png"></a>
           <div id="page_path"><?php if(isset($PAGE_PATH)){ echo $PAGE_PATH; } ?></div>
           <div id="form_search">
               <form method="get" onsubmit="validate();">
@@ -33,7 +34,7 @@
         <a href="javascript:" id="tab-edit"    class="tab-button tab" onclick="showTab('edit','');">Edit</a>
         <a href="javascript:" id="tab-side"    class="tab-button tab" onclick="showTab('side','');">Side</a>
         <a href="javascript:" id="tab-preview" class="tab-button tab" onclick="showTab('preview','');">Preview</a>
-        <img src="lib/imgs/search.png" id="search_icon">
+        <img alt="search" src="lib/imgs/search.png" id="search_icon">
         </header>
         <div id="content">
           <textarea id="menu-text" style="display: none;"><?php echo $MENU; ?></textarea>
@@ -42,23 +43,23 @@
               <div id="page-edit" class="tab-page">
                 <form id="edit-toolbox" name="edit-toolbox" action="index.php" method="post">
                     <div id="toolbar">
-                      <img title="Head Line"        onclick="insertTag('headline1');"       src="lib/imgs/text_heading_1.png">
-                      <img title="Bold"             onclick="insertTag('bold');"            src="lib/imgs/text_bold.png">
-                      <img title="Italic"           onclick="insertTag('italic');"          src="lib/imgs/text_italic.png">
-                      <img title="Strike Through"   onclick="insertTag('strikethrough');"   src="lib/imgs/text_strikethrough.png">
-                      <img title="Code"             onclick="insertTag('code');"            src="lib/imgs/text_allcaps.png">
-                      <img title="Block Code"       onclick="insertTag('blockcode');"       src="lib/imgs/page_white_code.png">
-                      <img title="Quote"            onclick="insertTag('quote');"           src="lib/imgs/text_padding_left.png">
-                      <img title="Ordered List"     onclick="insertTag('orderedlist');"     src="lib/imgs/text_list_numbers.png">
-                      <img title="Unordered List"   onclick="insertTag('unorderedlist');"   src="lib/imgs/text_list_bullets.png">
-                      <img title="Horizontal Rule"  onclick="insertTag('horizontalrule');"  src="lib/imgs/text_horizontalrule.png">
-                      <img title="Table"            onclick="insertTag('table');"           src="lib/imgs/table.png">
-                      <img title="Internal Link"    onclick="insertTag('internallink');"    src="lib/imgs/link.png">
-                      <img title="External Link"    onclick="insertTag('externallink');"    src="lib/imgs/world_link.png">
-                      <img title="Image"            onclick="showUpload();"                 src="lib/imgs/photo_add.png">
+                      <img title="Head Line"        alt="head line"       onclick="insertTag('headline1');"       src="lib/imgs/text_heading_1.png">
+                      <img title="Bold"             alt="bold"            onclick="insertTag('bold');"            src="lib/imgs/text_bold.png">
+                      <img title="Italic"           alt="italic"          onclick="insertTag('italic');"          src="lib/imgs/text_italic.png">
+                      <img title="Strike Through"   alt="strike through"  onclick="insertTag('strikethrough');"   src="lib/imgs/text_strikethrough.png">
+                      <img title="Code"             alt="code"            onclick="insertTag('code');"            src="lib/imgs/text_allcaps.png">
+                      <img title="Block Code"       alt="block code"      onclick="insertTag('blockcode');"       src="lib/imgs/page_white_code.png">
+                      <img title="Quote"            alt="quote"           onclick="insertTag('quote');"           src="lib/imgs/text_padding_left.png">
+                      <img title="Ordered List"     alt="ordered list"    onclick="insertTag('orderedlist');"     src="lib/imgs/text_list_numbers.png">
+                      <img title="Unordered List"   alt="unordered list"  onclick="insertTag('unorderedlist');"   src="lib/imgs/text_list_bullets.png">
+                      <img title="Horizontal Rule"  alt="horizontal rule" onclick="insertTag('horizontalrule');"  src="lib/imgs/text_horizontalrule.png">
+                      <img title="Table"            alt="table" alt=""    onclick="insertTag('table');"           src="lib/imgs/table.png">
+                      <img title="Internal Link"    alt="internal link"   onclick="insertTag('internallink');"    src="lib/imgs/link.png">
+                      <img title="External Link"    alt="external link"   onclick="insertTag('externallink');"    src="lib/imgs/world_link.png">
+                      <img title="Image"            alt="image"           onclick="showUpload();"                 src="lib/imgs/photo_add.png">
                       <input type="hidden" name="page" value="<?php echo $PAGE; ?>">
-                      <input type="image"  name="save" value="Save" src="lib/imgs/disk.png">
-                      <img title="Cancel" onclick="javascript:window.location.href='?p=<?php echo $PAGE; ?>'" src="lib/imgs/cross.png">
+                      <input type="image"  name="save" value="Save" src="lib/imgs/disk.png" alt="save">
+                      <img title="Cancel" alt="cancel" onclick="javascript:window.location.href='?p=<?php echo $PAGE; ?>'" src="lib/imgs/cross.png">
                     </div>
                     <textarea id="code" name="code"><?php echo $CONTENT; ?></textarea>
                 </form>
