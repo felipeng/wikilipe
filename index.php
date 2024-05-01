@@ -18,7 +18,10 @@ error_reporting(E_ALL);
 // Show page
 if (isset($_GET['p'])) {
     $PAGE = $_GET['p'];
-    $PAGE = str_replace("#/$#", "", $PAGE); // accept URL ended with /
+    echo "$PAGE";
+    echo "<br>";
+    $PAGE = rtrim($PAGE, "/"); // accept URL ended with /
+    echo "$PAGE";
     $PAGE_PATH = pagePath($PAGE);
     $FILENAME = "$DIR_PAGES/$PAGE.md";
 
