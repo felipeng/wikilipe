@@ -21,7 +21,7 @@ input{border-radius: 5px;}
 pre{border: 1px solid #e1e1e8; padding: 4px; border-radius: 4px; margin: 0px 0px 20px 0px; background-color: #f7f7f7; position: relative; width: 82%;}
 .clipboard{right: 0px; position: absolute; cursor: pointer;}
 .clipboard_img{width: 20px; border: 0px; padding: 0px;}
-code{font-size: 10pt; color: #4d4d4d; padding: 0px 4px 0px 4px; background-color: #f7f7f7; border-radius: 4px; font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;}
+code{font-size: 10pt; color: #4d4d4d; background-color: #f7f7f7; border-radius: 4px; font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;}
 textarea{display:block; width:100%; height: 1100px; padding: 5px; font-size: 10pt; margin-bottom: 5px; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; resize: vertical;}
 form{display:inline}
 table {border-collapse: collapse; font-size: 11pt; margin: 0px 0px 10px 0px;}
